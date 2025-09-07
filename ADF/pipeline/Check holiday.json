@@ -51,7 +51,7 @@
 					},
 					"ifFalseActivities": [
 						{
-							"name": "Execute Pipeline3",
+							"name": "Execute Pipeline P2 Product",
 							"type": "ExecutePipeline",
 							"dependsOn": [],
 							"policy": {
