@@ -1,0 +1,87 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "mission100siddhant2607"
+		},
+		"ADLS_LS_accountKey": {
+			"value": ""
+		},
+		"Generic_LS_password": {
+			"value": ""
+		},
+		"SQL_DB_Dynamic_LS_password": {
+			"value": ""
+		},
+		"SQL_DB_LS_password": {
+			"value": ""
+		},
+		"Sftp1_password": {
+			"value": ""
+		},
+		"ADLS_LS_properties_typeProperties_url": {
+			"value": "https://siddhant2607adls.dfs.core.windows.net/"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://mission100siddhantKV.vault.azure.net/"
+		},
+		"Generic_LS_properties_typeProperties_server": {
+			"value": "sidsqlserver.database.windows.net"
+		},
+		"Generic_LS_properties_typeProperties_database": {
+			"value": "@{linkedService().DB_name}"
+		},
+		"Generic_LS_properties_typeProperties_userName": {
+			"value": "@{linkedService().User_name}"
+		},
+		"KV_LS_properties_typeProperties_server": {
+			"value": "sidsqlserver.database.windows.net"
+		},
+		"KV_LS_properties_typeProperties_database": {
+			"value": "mission100sid2607db"
+		},
+		"KV_LS_properties_typeProperties_userName": {
+			"value": "sidsqlserver"
+		},
+		"RESTAPI_LS_properties_typeProperties_url": {
+			"value": "https://restcountries.com/v3.1/all"
+		},
+		"Rest_Generic_LS_properties_typeProperties_url": {
+			"value": "https://restcountries.com/v3.1/name/"
+		},
+		"Rest_Page_LS_properties_typeProperties_url": {
+			"value": "https://dummyjson.com/products/{Page_no}"
+		},
+		"SQL_DB_Dynamic_LS_properties_typeProperties_server": {
+			"value": "sidsqlserver.database.windows.net"
+		},
+		"SQL_DB_Dynamic_LS_properties_typeProperties_database": {
+			"value": "mission100sid2607db"
+		},
+		"SQL_DB_Dynamic_LS_properties_typeProperties_userName": {
+			"value": "@{linkedService().userName}"
+		},
+		"SQL_DB_LS_properties_typeProperties_server": {
+			"value": "sidsqlserver.database.windows.net"
+		},
+		"SQL_DB_LS_properties_typeProperties_database": {
+			"value": "mission100sid2607db"
+		},
+		"SQL_DB_LS_properties_typeProperties_userName": {
+			"value": "sidsqlserver"
+		},
+		"Sftp1_properties_typeProperties_host": {
+			"value": "test.rebex.net"
+		},
+		"Sftp1_properties_typeProperties_userName": {
+			"value": "demo"
+		},
+		"Event Trigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/d68a41c1-43a8-42b9-a1de-9cda294eddae/resourceGroups/azurelib/providers/Microsoft.Storage/storageAccounts/siddhant2607adls"
+		},
+		"Storage Trigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/d68a41c1-43a8-42b9-a1de-9cda294eddae/resourceGroups/azurelib/providers/Microsoft.Storage/storageAccounts/siddhant2607adls"
+		}
+	}
+}

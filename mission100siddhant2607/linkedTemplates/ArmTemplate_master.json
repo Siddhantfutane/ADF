@@ -1,0 +1,344 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "mission100siddhant2607"
+		},
+		"ADLS_LS_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLS_LS'"
+		},
+		"Generic_LS_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Generic_LS'"
+		},
+		"SQL_DB_Dynamic_LS_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SQL_DB_Dynamic_LS'"
+		},
+		"SQL_DB_LS_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SQL_DB_LS'"
+		},
+		"Sftp1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Sftp1'"
+		},
+		"ADLS_LS_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://siddhant2607adls.dfs.core.windows.net/"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://mission100siddhantKV.vault.azure.net/"
+		},
+		"Generic_LS_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sidsqlserver.database.windows.net"
+		},
+		"Generic_LS_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "@{linkedService().DB_name}"
+		},
+		"Generic_LS_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "@{linkedService().User_name}"
+		},
+		"KV_LS_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sidsqlserver.database.windows.net"
+		},
+		"KV_LS_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "mission100sid2607db"
+		},
+		"KV_LS_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sidsqlserver"
+		},
+		"RESTAPI_LS_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://restcountries.com/v3.1/all"
+		},
+		"Rest_Generic_LS_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://restcountries.com/v3.1/name/"
+		},
+		"Rest_Page_LS_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://dummyjson.com/products/{Page_no}"
+		},
+		"SQL_DB_Dynamic_LS_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sidsqlserver.database.windows.net"
+		},
+		"SQL_DB_Dynamic_LS_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "mission100sid2607db"
+		},
+		"SQL_DB_Dynamic_LS_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "@{linkedService().userName}"
+		},
+		"SQL_DB_LS_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sidsqlserver.database.windows.net"
+		},
+		"SQL_DB_LS_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "mission100sid2607db"
+		},
+		"SQL_DB_LS_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sidsqlserver"
+		},
+		"Sftp1_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "test.rebex.net"
+		},
+		"Sftp1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "demo"
+		},
+		"Event Trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/d68a41c1-43a8-42b9-a1de-9cda294eddae/resourceGroups/azurelib/providers/Microsoft.Storage/storageAccounts/siddhant2607adls"
+		},
+		"Storage Trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/d68a41c1-43a8-42b9-a1de-9cda294eddae/resourceGroups/azurelib/providers/Microsoft.Storage/storageAccounts/siddhant2607adls"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "mission100siddhant2607_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ADLS_LS_accountKey": {
+						"value": "[parameters('ADLS_LS_accountKey')]"
+					},
+					"Generic_LS_password": {
+						"value": "[parameters('Generic_LS_password')]"
+					},
+					"SQL_DB_Dynamic_LS_password": {
+						"value": "[parameters('SQL_DB_Dynamic_LS_password')]"
+					},
+					"SQL_DB_LS_password": {
+						"value": "[parameters('SQL_DB_LS_password')]"
+					},
+					"Sftp1_password": {
+						"value": "[parameters('Sftp1_password')]"
+					},
+					"ADLS_LS_properties_typeProperties_url": {
+						"value": "[parameters('ADLS_LS_properties_typeProperties_url')]"
+					},
+					"AzureKeyVault1_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+					},
+					"Generic_LS_properties_typeProperties_server": {
+						"value": "[parameters('Generic_LS_properties_typeProperties_server')]"
+					},
+					"Generic_LS_properties_typeProperties_database": {
+						"value": "[parameters('Generic_LS_properties_typeProperties_database')]"
+					},
+					"Generic_LS_properties_typeProperties_userName": {
+						"value": "[parameters('Generic_LS_properties_typeProperties_userName')]"
+					},
+					"RESTAPI_LS_properties_typeProperties_url": {
+						"value": "[parameters('RESTAPI_LS_properties_typeProperties_url')]"
+					},
+					"Rest_Generic_LS_properties_typeProperties_url": {
+						"value": "[parameters('Rest_Generic_LS_properties_typeProperties_url')]"
+					},
+					"Rest_Page_LS_properties_typeProperties_url": {
+						"value": "[parameters('Rest_Page_LS_properties_typeProperties_url')]"
+					},
+					"SQL_DB_Dynamic_LS_properties_typeProperties_server": {
+						"value": "[parameters('SQL_DB_Dynamic_LS_properties_typeProperties_server')]"
+					},
+					"SQL_DB_Dynamic_LS_properties_typeProperties_database": {
+						"value": "[parameters('SQL_DB_Dynamic_LS_properties_typeProperties_database')]"
+					},
+					"SQL_DB_Dynamic_LS_properties_typeProperties_userName": {
+						"value": "[parameters('SQL_DB_Dynamic_LS_properties_typeProperties_userName')]"
+					},
+					"SQL_DB_LS_properties_typeProperties_server": {
+						"value": "[parameters('SQL_DB_LS_properties_typeProperties_server')]"
+					},
+					"SQL_DB_LS_properties_typeProperties_database": {
+						"value": "[parameters('SQL_DB_LS_properties_typeProperties_database')]"
+					},
+					"SQL_DB_LS_properties_typeProperties_userName": {
+						"value": "[parameters('SQL_DB_LS_properties_typeProperties_userName')]"
+					},
+					"Sftp1_properties_typeProperties_host": {
+						"value": "[parameters('Sftp1_properties_typeProperties_host')]"
+					},
+					"Sftp1_properties_typeProperties_userName": {
+						"value": "[parameters('Sftp1_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "mission100siddhant2607_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'mission100siddhant2607_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "mission100siddhant2607_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"KV_LS_properties_typeProperties_server": {
+						"value": "[parameters('KV_LS_properties_typeProperties_server')]"
+					},
+					"KV_LS_properties_typeProperties_database": {
+						"value": "[parameters('KV_LS_properties_typeProperties_database')]"
+					},
+					"KV_LS_properties_typeProperties_userName": {
+						"value": "[parameters('KV_LS_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'mission100siddhant2607_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "mission100siddhant2607_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'mission100siddhant2607_ArmTemplate_2')]"
+			]
+		},
+		{
+			"name": "mission100siddhant2607_ArmTemplate_4",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_4.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'mission100siddhant2607_ArmTemplate_3')]"
+			]
+		},
+		{
+			"name": "mission100siddhant2607_ArmTemplate_5",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_5.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'mission100siddhant2607_ArmTemplate_4')]"
+			]
+		},
+		{
+			"name": "mission100siddhant2607_ArmTemplate_6",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_6.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Event Trigger_properties_typeProperties_scope": {
+						"value": "[parameters('Event Trigger_properties_typeProperties_scope')]"
+					},
+					"Storage Trigger_properties_typeProperties_scope": {
+						"value": "[parameters('Storage Trigger_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'mission100siddhant2607_ArmTemplate_5')]"
+			]
+		}
+	]
+}
