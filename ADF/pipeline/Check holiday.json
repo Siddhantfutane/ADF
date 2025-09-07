@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Check Holiday",
+				"name": "Holiday Lookup",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -37,7 +37,7 @@
 				"type": "IfCondition",
 				"dependsOn": [
 					{
-						"activity": "Check Holiday",
+						"activity": "Holiday Lookup",
 						"dependencyConditions": [
 							"Succeeded"
 						]
