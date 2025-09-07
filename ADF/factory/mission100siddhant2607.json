@@ -1,0 +1,9 @@
+{
+	"name": "mission100siddhant2607",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "cf2b1c04-4c5a-46be-9cf9-00175e0c24ff",
+		"tenantId": "3e5bd82c-2241-4b5f-b731-cd99e6fd5cd7"
+	}
+}

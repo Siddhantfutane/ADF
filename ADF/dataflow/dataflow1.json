@@ -1,0 +1,108 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Product_CSV_DS",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Dataflow_Output_DS",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "Filter"
+				},
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "Select1"
+				},
+				{
+					"name": "aggregate1"
+				},
+				{
+					"name": "filter1"
+				},
+				{
+					"name": "sort1"
+				},
+				{
+					"name": "surrogateKey1"
+				},
+				{
+					"name": "rank1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          ProductID as short,",
+				"          Name as string,",
+				"          ProductNumber as string,",
+				"          Color as string,",
+				"          StandardCost as double,",
+				"          ListPrice as double,",
+				"          Size as string,",
+				"          Weight as double,",
+				"          ProductCategoryID as short,",
+				"          ProductModelID as short,",
+				"          SellStartDate as string,",
+				"          SellEndDate as string,",
+				"          DiscontinuedDate as string,",
+				"          ThumbNailPhoto as string,",
+				"          ThumbnailPhotoFileName as string,",
+				"          rowguid as string,",
+				"          ModifiedDate as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 filter(ProductID>800) ~> Filter",
+				"Filter derive(isColorFlag = equalsIgnoreCase(Color,'Black')) ~> derivedColumn1",
+				"derivedColumn1 select(mapColumn(",
+				"          ProductID,",
+				"          Name,",
+				"          Color,",
+				"          StandardCost,",
+				"          ListPrice,",
+				"          Size,",
+				"          ModifiedDate,",
+				"          isColorFlag",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> Select1",
+				"Select1 aggregate(groupBy(Color),",
+				"     {Highest Price} = max(ListPrice),",
+				"          {Product Count} = count(ProductID)) ~> aggregate1",
+				"aggregate1 filter(!isNull(Color)) ~> filter1",
+				"filter1 sort(desc({Highest Price}, true)) ~> sort1",
+				"source1 keyGenerate(output(newUniqueKeyColumn as long),",
+				"     startAt: 10001L,",
+				"     stepValue: 1L) ~> surrogateKey1",
+				"surrogateKey1 rank(asc(ProductID, true),",
+				"     output(Rank1 as long),",
+				"     dense: true) ~> rank1",
+				"sort1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}

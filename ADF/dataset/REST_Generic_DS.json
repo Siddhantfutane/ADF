@@ -1,0 +1,24 @@
+{
+	"name": "REST_Generic_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Rest_Generic_LS",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Relativeurl": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": {
+				"value": "@dataset().Relativeurl",
+				"type": "Expression"
+			}
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,31 @@
+{
+	"name": "AS_08_01_DB_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQL_DB_LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "CID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Names",
+				"type": "varchar"
+			},
+			{
+				"name": "MailID",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "SalesLT",
+			"table": "Customer_New"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

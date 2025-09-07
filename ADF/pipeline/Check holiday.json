@@ -1,0 +1,77 @@
+{
+	"name": "Check holiday",
+	"properties": {
+		"activities": [
+			{
+				"name": "Check Holiday",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "SELECT * FROM holiday_calendar WHERE holiday_date = CAST(GETDATE() AS DATE)",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "Generic_SQL_DS",
+						"type": "DatasetReference",
+						"parameters": {
+							"schemaName": "dbo",
+							"tableName": "holiday_calendar"
+						}
+					},
+					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "If Holiday",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "Check Holiday",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@greater(length(activity('Check Holiday').output.value), 0)",
+						"type": "Expression"
+					},
+					"ifFalseActivities": [
+						{
+							"name": "Execute Pipeline3",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "P2 Product",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true
+							}
+						}
+					]
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2025-05-31T17:30:59Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

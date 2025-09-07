@@ -1,0 +1,25 @@
+{
+	"name": "KV_LS",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "sidsqlserver.database.windows.net",
+			"database": "mission100sid2607db",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "sidsqlserver",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "My-db-password",
+				"secretVersion": "0e362012a200440e9eb134c0bcee6ce7"
+			}
+		}
+	}
+}

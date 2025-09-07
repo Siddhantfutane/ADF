@@ -1,0 +1,17 @@
+{
+	"name": "SCD1_DB_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQL_DB_LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Employee_SCDType1"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
