@@ -5,8 +5,6 @@
 			{
 				"name": "S3 to ADLS",
 				"type": "Copy",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -64,52 +62,6 @@
 						}
 					}
 				]
-			},
-			{
-				"name": "Web1",
-				"type": "WebActivity",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"method": "POST",
-					"url": "http://project-gm-function-d7fhgmeqacg7ejba.eastus2-01.azurewebsites.net/",
-					"body": {
-						"filePath": "input/landing/2025/09/16/Customer_Valid.json"
-					}
-				}
-			},
-			{
-				"name": "Azure Function1",
-				"type": "AzureFunctionActivity",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"functionName": "Project-GM-function",
-					"body": {
-						"filePath": "input/landing/2025/09/16/Customer_Valid.json"
-					},
-					"method": "POST"
-				},
-				"linkedServiceName": {
-					"referenceName": "AzureFunction2",
-					"type": "LinkedServiceReference"
-				}
 			}
 		],
 		"annotations": []
