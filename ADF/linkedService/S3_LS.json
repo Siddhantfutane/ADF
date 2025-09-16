@@ -1,0 +1,30 @@
+{
+	"name": "S3_LS",
+	"properties": {
+		"description": "This is linked service connecting to S3 Bucket",
+		"annotations": [],
+		"type": "AmazonS3",
+		"typeProperties": {
+			"serviceUrl": "https://s3.amazonaws.com",
+			"accessKeyId": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "s3-AWS-kv-access-id",
+				"secretVersion": "ec9610796bb54e53b315cae5227e9425"
+			},
+			"secretAccessKey": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "s3-secret-access-key",
+				"secretVersion": "1d25217edea74a42a0d68ade2195a227"
+			},
+			"authenticationType": "AccessKey"
+		}
+	}
+}
