@@ -1,5 +1,5 @@
 {
-	"name": "pipeline2",
+	"name": "GM S3 to ADLS",
 	"properties": {
 		"activities": [
 			{
@@ -20,6 +20,7 @@
 						"storeSettings": {
 							"type": "AmazonS3ReadSettings",
 							"recursive": true,
+							"wildcardFileName": "*.json",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -52,7 +53,13 @@
 				"outputs": [
 					{
 						"referenceName": "gm_json_DS",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"landingFolder": {
+								"value": "@concat('landing/',formatDateTime(utcnow(),'yyyy'),'/',formatDateTime(utcnow(),'MM'),'/',formatDateTime(utcnow(),'dd'),'/')",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
