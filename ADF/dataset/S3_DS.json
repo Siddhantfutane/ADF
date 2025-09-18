@@ -1,5 +1,5 @@
 {
-	"name": "Json3",
+	"name": "S3_DS",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "S3_LS",
