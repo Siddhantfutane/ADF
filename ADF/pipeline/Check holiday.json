@@ -46,7 +46,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@greater(length(activity('Check Holiday').output.value), 0)",
+						"value": "@greater(length(activity('Holiday Lookup').output.value), 0)",
 						"type": "Expression"
 					},
 					"ifFalseActivities": [
