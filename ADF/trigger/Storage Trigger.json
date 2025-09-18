@@ -9,12 +9,6 @@
 					"referenceName": "Assignment_7_6",
 					"type": "PipelineReference"
 				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "GM ADLS to SQL DB",
-					"type": "PipelineReference"
-				}
 			}
 		],
 		"type": "BlobEventsTrigger",
