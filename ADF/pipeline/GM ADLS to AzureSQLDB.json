@@ -102,7 +102,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Json4",
+						"referenceName": "Staging_json",
 						"type": "DatasetReference"
 					}
 				],

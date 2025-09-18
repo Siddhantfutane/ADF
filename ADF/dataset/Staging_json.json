@@ -1,5 +1,5 @@
 {
-	"name": "Json4",
+	"name": "Staging_json",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ADLS2_LS",
