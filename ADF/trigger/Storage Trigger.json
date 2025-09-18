@@ -9,6 +9,12 @@
 					"referenceName": "Assignment_7_6",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "GM ADLS to AzureSQLDB",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "BlobEventsTrigger",
