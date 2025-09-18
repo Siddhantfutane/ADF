@@ -5,7 +5,16 @@
 		"factoryName": {
 			"value": "mission100siddhant2607"
 		},
+		"ADLS2_LS_accountKey": {
+			"value": ""
+		},
 		"ADLS_LS_accountKey": {
+			"value": ""
+		},
+		"AzureFunction1_functionKey": {
+			"value": ""
+		},
+		"AzureFunction2_functionKey": {
 			"value": ""
 		},
 		"Generic_LS_password": {
@@ -20,8 +29,17 @@
 		"Sftp1_password": {
 			"value": ""
 		},
+		"ADLS2_LS_properties_typeProperties_url": {
+			"value": "https://siddhant2607adls2.dfs.core.windows.net/"
+		},
 		"ADLS_LS_properties_typeProperties_url": {
 			"value": "https://siddhant2607adls.dfs.core.windows.net/"
+		},
+		"AzureFunction1_properties_typeProperties_functionAppUrl": {
+			"value": "https://project-gm-function-d7fhgmeqacg7ejba.eastus2-01.azurewebsites.net"
+		},
+		"AzureFunction2_properties_typeProperties_functionAppUrl": {
+			"value": "https://project-gm-function-d7fhgmeqacg7ejba.eastus2-01.azurewebsites.net"
 		},
 		"AzureKeyVault1_properties_typeProperties_baseUrl": {
 			"value": "https://mission100siddhantKV.vault.azure.net/"
@@ -53,6 +71,17 @@
 		"Rest_Page_LS_properties_typeProperties_url": {
 			"value": "https://dummyjson.com/products/{Page_no}"
 		},
+		"S3_LS_properties_typeProperties_accessKeyId": {
+			"value": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "s3-AWS-kv-access-id",
+				"secretVersion": "ec9610796bb54e53b315cae5227e9425"
+			}
+		},
 		"SQL_DB_Dynamic_LS_properties_typeProperties_server": {
 			"value": "sidsqlserver.database.windows.net"
 		},
@@ -81,7 +110,7 @@
 			"value": "/subscriptions/d68a41c1-43a8-42b9-a1de-9cda294eddae/resourceGroups/azurelib/providers/Microsoft.Storage/storageAccounts/siddhant2607adls"
 		},
 		"Storage Trigger_properties_typeProperties_scope": {
-			"value": "/subscriptions/d68a41c1-43a8-42b9-a1de-9cda294eddae/resourceGroups/azurelib/providers/Microsoft.Storage/storageAccounts/siddhant2607adls"
+			"value": "/subscriptions/d68a41c1-43a8-42b9-a1de-9cda294eddae/resourceGroups/azurelib/providers/Microsoft.Storage/storageAccounts/siddhant2607adls2"
 		},
 		"containerUri": {
 			"value": ""
