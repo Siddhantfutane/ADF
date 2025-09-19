@@ -1,0 +1,25 @@
+{
+	"name": "FullAdd_DB_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQL_DB_LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Full_Name",
+				"type": "varchar"
+			},
+			{
+				"name": "Full_Address",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Customer_address"
+		}
+	}
+}

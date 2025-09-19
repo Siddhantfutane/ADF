@@ -1,0 +1,61 @@
+{
+	"name": "Customer_DB_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQL_DB_LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Name",
+				"type": "varchar"
+			},
+			{
+				"name": "MiddleName",
+				"type": "varchar"
+			},
+			{
+				"name": "SirName",
+				"type": "varchar"
+			},
+			{
+				"name": "Address1",
+				"type": "varchar"
+			},
+			{
+				"name": "Address2",
+				"type": "varchar"
+			},
+			{
+				"name": "Landmark",
+				"type": "varchar"
+			},
+			{
+				"name": "City",
+				"type": "varchar"
+			},
+			{
+				"name": "Pincode",
+				"type": "varchar"
+			},
+			{
+				"name": "State",
+				"type": "varchar"
+			},
+			{
+				"name": "Country",
+				"type": "varchar"
+			},
+			{
+				"name": "MobileNo",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Customers"
+		}
+	}
+}
